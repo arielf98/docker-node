@@ -8,12 +8,16 @@ app.get("/", (req, res) => {
 });
 
 app.get("/add-cookie", (req, res) => {
-  const cookies = req.cookies.user;
+  const cookies = req.cookies?.user;
 
   const user = ["Ariel", "Orie"];
 
   if (cookies === undefined) {
-    res.cookie("user", JSON.stringify(user));
+    res.cookie("user", JSON.stringify(user), {
+      maxAge: 900000,
+      httpOnly: true,
+      sameSite: "lax",
+    });
     res.json({ message: "cookie created" });
   }
 });
