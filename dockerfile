@@ -8,10 +8,6 @@ WORKDIR /usr/src/app
 #copy all package.json file to node dir
 COPY package*.json ./
 
-RUN apt-get update && apt-get upgrade -y && \
-apt-get install -y nodejs \
-npm
-
 RUN npm install
 
 #bundle app source
