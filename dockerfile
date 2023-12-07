@@ -1,14 +1,10 @@
-FROM alpine:3.18
-
-ENV NODE_VERSION 20.10.0
+FROM node:20.10.0
 
 #create node app dir 
 WORKDIR /usr/src/app
 
 #copy all package.json file to node dir
 COPY package*.json ./
-
-RUN apk add nodejs=20.10.0
 
 RUN npm install
 
