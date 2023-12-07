@@ -8,9 +8,9 @@ WORKDIR /usr/src/app
 #copy all package.json file to node dir
 COPY package*.json ./
 
-RUN apt-get update && apt-get install -y curl
+RUN apk update && apk add install -y curl
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
-RUN apt-get update && apt-get install -y nodejs
+RUN apk update && apt-get install -y nodejs
 
 RUN npm install
 
