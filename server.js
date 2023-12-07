@@ -7,6 +7,17 @@ app.get("/", (req, res) => {
   res.send("simple node js with docker in vps");
 });
 
+app.get("/add-cookie", (req, res) => {
+  const cookies = req.cookies.user;
+
+  const user = ["Ariel", "Orie"];
+
+  if (cookies === undefined) {
+    res.cookie("user", JSON.stringify(user));
+    res.json({ message: "cookie created" });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`App running on port: ${PORT}`);
 });
