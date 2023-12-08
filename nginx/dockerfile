@@ -3,7 +3,7 @@ FROM nginx:stable-alpine3.17-slim
 WORKDIR /usr/nginx
 
 COPY nginx.conf /etc/nginx/
-COPY ../ssl/ariel.com.crt /etc/nginx/ssl/
+COPY ../ssl/ariel.crt /etc/nginx/ssl/
 COPY ../ssl/ariel.com.key /etc/nginx/ssl/
 
 COPY . .
